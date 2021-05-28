@@ -15,8 +15,8 @@ class dashboardController extends Controller
      */
     public function index()
     {
-        $items = item::paginate(3);
-        $kartus = kartu::paginate(3);
+        $items = item::paginate(3,['*'],'item');
+        $kartus = kartu::paginate(3,['*'],'kartu');
         return view('pages.jones.dashboard')
         ->with([
             'items'=>$items,
