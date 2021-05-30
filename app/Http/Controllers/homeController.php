@@ -7,7 +7,7 @@ use App\Models\item;
 use App\Models\kartu;
 use App\Models\tagline;
 
-class dashboardController extends Controller
+class homeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,13 +19,12 @@ class dashboardController extends Controller
         $items = item::paginate(3,['*'],'item');
         $kartus = kartu::paginate(3,['*'],'kartu');
         $taglines = tagline::paginate(3,['*'],'tagline');
-        return view('pages.jones.dashboard')
+        return view('pages.home.home')
         ->with([
             'items'=>$items,
             'kartus'=>$kartus,
             'taglines'=>$taglines
-            ])
-        ;
+            ]);
     }
 
     /**

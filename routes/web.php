@@ -31,4 +31,16 @@ Route::get('/showkartu/{id}','kartuController@show')->name('kartu.show');
 Route::get('/editkartu/{id}','kartuController@edit')->name('kartu.edit');
 Route::post('/updatekartu/{id}','kartuController@update')->name('kartu.update');
 
+
+Route::get('/tagline','taglineController@index')->name('tagline.index');
+Route::get('/createtagline','taglineController@create')->name('tagline.create');
+Route::post('/storetagline','taglineController@store')->name('tagline.store');
+Route::post('/deletetagline/{id}','taglineController@destroy')->name('tagline.destroy');
+Route::get('/showtagline/{id}','taglineController@show')->name('tagline.show');
+Route::get('/edittagline/{id}','taglineController@edit')->name('tagline.edit');
+Route::post('/updatetagline/{id}','taglineController@update')->name('tagline.update');
+
+
+Route::get('/landing','homeController@index')->name('landing.index');
+
 Route::get('/','dashboardController@index')->name('dashboard.index');

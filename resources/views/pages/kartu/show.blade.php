@@ -1,6 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
+
+<div class="container">
+    <div class="card mx-2">
+        <div class="card-header">
+
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -26,4 +32,8 @@
             </div>
         </div>
     </div>
+    </div>
+    </div>
+    </div>
+    
 @endsection

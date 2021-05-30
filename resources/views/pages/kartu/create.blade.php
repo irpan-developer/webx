@@ -3,15 +3,11 @@
    
 
 @section('content')   
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
+<div class="container">
+    <div class="card mx-2">
+        <div class="card-header">
+
 <form action="{{ route('kartu.store') }}" method="POST">
 @csrf
  <div class="row">
@@ -28,9 +24,15 @@
             <textarea class="form-control" style="height:150px" name="deskripsi" placeholder="Detail"></textarea>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+    <div class="card-footer d-flex justify-content-end">
+        <a class="btn btn-primary" href="{{ route('kartu.index') }}"> Kembali</a>
+    </div>
+
+    
+    <div class="card-footer d-flex justify-content-start">
             <button type="submit" class="btn btn-primary">Submit</button>
     </div>
+</div>
 
  </div>
 
@@ -38,5 +40,8 @@
 
 </form>
 </body>
-</html>
+
+</div>
+</div>
+</div>
 @endsection

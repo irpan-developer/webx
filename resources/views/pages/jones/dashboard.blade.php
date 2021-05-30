@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+ 
 @section('content')
 <div class="container">
     <div class="card mx-2">
@@ -28,17 +28,16 @@
             </table>
         </div>  
         <div class="card-footer d-flex justify-content-end">
-        {{ $items->links() }}
+        {{ $items->appends(['kartu'=>$kartus->currentPage()])->appends(['tagline'=>$taglines->currentPage()])->links() }}
         </div>
     </div>
 </div>
 
 <div class="container mt-5">
     <div class="card mx-2">
-        <div class="card-header">
-            <h6>Tabel Kartu</h6>
-        </div>
+        
         <div class="card-body">
+        <h6>Tabel Kartu</h6>
             <table class="table table-bordered">
                 <tr>
                     <th>No</th>
@@ -58,10 +57,41 @@
                 @endforeach
             </table>
             <div class="card-footer d-flex justify-content-end">
-                {{ $kartus->links() }}
+                {{ $kartus->appends(['item'=>$items->currentPage()])->appends(['tagline'=>$taglines->currentPage()])->links() }}
             </div>
         </div>
     </div>
 </div>
+
+<div class="container mt-5">
+    <div class="card mx-2">
+        <div class="card-body">
+        <h6>Tabel Kartu</h6>
+            <table class="table table-bordered">
+                <tr>
+                    <th>No</th>
+                    <th>Headline</th>
+                    <th>Bodyline</th>
+                    <th>Dibuat Pada</th>
+                    <th>Diperbarui pada</th>
+                </tr>
+                @foreach($taglines as $tagline)
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$tagline->headline}}</td>
+                        <td>{{$tagline->bodyline}}</td>
+                        <td>{{$tagline->created_at }}</td>
+                        <td>{{$tagline->updated_at }}</td>  
+                    </tr>
+                @endforeach
+            </table>
+            <div class="card-footer d-flex justify-content-end">
+                {{ $taglines->appends(['item'=>$items->currentPage()])->appends(['kartu'=>$kartus->currentPage()])->links() }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 @endsection

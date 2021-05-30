@@ -82,7 +82,7 @@ class kartuController extends Controller
         $kartus = kartu::findOrFail($id);
         $newKartu=$request->all();
         $kartus->update($newKartu);
-        return redirect()->route('kartu.index')->with('success', 'Item berhasil di Updateitem');
+        return redirect()->route('kartu.index')->with('success', 'Item berhasil di Update');
     }
 
     /**

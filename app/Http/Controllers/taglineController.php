@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\item;
-use App\Models\kartu;
 use App\Models\tagline;
 
-class dashboardController extends Controller
+class taglineController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,16 +14,10 @@ class dashboardController extends Controller
      */
     public function index()
     {
-        $items = item::paginate(3,['*'],'item');
-        $kartus = kartu::paginate(3,['*'],'kartu');
-        $taglines = tagline::paginate(3,['*'],'tagline');
-        return view('pages.jones.dashboard')
-        ->with([
-            'items'=>$items,
-            'kartus'=>$kartus,
+        $taglines = tagline::paginate(5);
+        return view('pages.tagline.index')->with([
             'taglines'=>$taglines
-            ])
-        ;
+            ]);
     }
 
     /**
@@ -35,7 +27,7 @@ class dashboardController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.tagline.create');
     }
 
     /**
@@ -46,7 +38,10 @@ class dashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $taglines = tagline::all();
+        $taglines =$request->all();
+        tagline::create($taglines);
+        return redirect()->route('tagline.index');
     }
 
     /**
@@ -57,7 +52,9 @@ class dashboardController extends Controller
      */
     public function show($id)
     {
-        //
+        $taglines = tagline::find($id);
+        return view('pages.tagline.show')
+        ->with(['taglines'=>$taglines]);
     }
 
     /**
@@ -68,7 +65,9 @@ class dashboardController extends Controller
      */
     public function edit($id)
     {
-        //
+        $taglines = tagline::find($id);
+        return view('pages.tagline.edit')
+        ->with(['taglines'=>$taglines]);
     }
 
     /**
@@ -80,7 +79,10 @@ class dashboardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $taglines = tagline::findOrFail($id);
+        $newKartu=$request->all();
+        $taglines->update($newKartu);
+        return redirect()->route('tagline.index')->with('success', 'Item berhasil di Updateitem');
     }
 
     /**
@@ -91,6 +93,9 @@ class dashboardController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $taglines = tagline::find($id);
+        $taglines->delete();
+        return redirect()->route('tagline.index')
+        ->with('success','kartu berhasil didelet.');
     }
 }

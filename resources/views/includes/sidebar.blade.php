@@ -42,6 +42,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Komponen Utama:</h6>
+                <a class="collapse-item" href="/tagline">Tagline</a>
                 <a class="collapse-item" href="/item">Item</a>
                 <a class="collapse-item" href="/kartu">Kartu</a>
             </div>
