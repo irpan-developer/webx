@@ -44,3 +44,8 @@ Route::post('/updatetagline/{id}','taglineController@update')->name('tagline.upd
 Route::get('/landing','homeController@index')->name('landing.index');
 
 Route::get('/','dashboardController@index')->name('dashboard.index');
+
+
+Route::get('image-upload', 'ImageController@imageUpload')->name('image.upload');
+
+Route::post('image-upload', 'ImageController@imageUploadPost')->name('image.upload.post');

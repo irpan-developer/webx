@@ -48,9 +48,23 @@
                     <textarea class="form-control" style="height:150px" name="deskripsi" placeholder="Detail">{{ $kartus->deskripsi }}</textarea>
                 </div>
             </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">   
+          <input type="file" name="file" class="form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" >
+          @if ($errors->has('file'))
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $errors->first('file') }}</strong>
+              </span>
+          @endif
+          <img src="{{ $kartus->path }}" height="140" widht="100" alt="{{ $kartus->path }}" />
+        </div>
+            
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
+        </div>
+
         </div>
    
     </form>

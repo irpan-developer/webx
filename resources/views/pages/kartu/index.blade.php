@@ -25,6 +25,7 @@
             <th>No</th>
             <th>Judul</th>
             <th>Deskripsi</th>
+            <th>Gambar</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($kartus as $kartu)
@@ -32,6 +33,7 @@
             <td>{{$loop->iteration}}</td>
             <td>{{ $kartu->judul }}</td>
             <td>{{ $kartu->deskripsi }}</td>
+            <td><img src="{{ $kartu->path }}" height="140" widht="100" alt="{{ $kartu->path }}" /></td>
             <td>
                 <form action="{{ route('kartu.destroy',$kartu->id) }}" method="POST">
                 <a class="btn btn-info" href="{{ route('kartu.show',$kartu->id) }}">Show</a>

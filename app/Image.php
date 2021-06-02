@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class kartu extends Model
+class Image extends Model
 {
     protected $fillable = [
-        'judul','deskripsi','path'
+        'name','path'
     ];
 }

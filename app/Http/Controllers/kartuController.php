@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\kartu;
+use App\Image;
 
 class kartuController extends Controller
 {
@@ -15,8 +16,10 @@ class kartuController extends Controller
     public function index()
     {
         $kartus = kartu::paginate(5);
+        $images=Image::paginate(5);
         return view('pages.kartu.index')->with([
-            'kartus'=>$kartus
+            'kartus'=>$kartus,
+            'images'=>$images
             ]);
     }
 
@@ -38,11 +41,53 @@ class kartuController extends Controller
      */
     public function store(Request $request)
     {
-        $kartus = kartu::all();
-        $kartus =$request->all();
-        kartu::create($kartus);
-        return redirect()->route('kartu.index');
+        $request->validate([
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'judul' => 'required|string',
+            'deskripsi' => 'required|string',
+        ]);
+
+
+    if($request->hasFile('file')) {
+        // $img_ext = $request->file('file')->getClientOriginalExtension();
+        // $filename = time() . '.' . $img_ext;
+        // $path = $request->file('file')->move(public_path(), $filename);//image save public folder
+
+        // $imagePath = $request->file('file');
+            $imagePath = $request->file('file');
+            $imageExt=$imagePath->getClientOriginalExtension();
+            $imageName = $imagePath->getClientOriginalName();
+            $path = $request->file('file')->storeAs('uploads', $imageName, 'public');
     }
+  //You should store only filename not path in db
+  kartu::create([
+    'judul' => $request->judul,
+    'deskripsi' => $request->deskripsi,
+    'path' => '/storage/'.$path, 
+  ]);
+
+    return redirect()->route('kartu.index');
+}
+
+
+
+
+
+
+        // $kartus = kartu::all();
+        
+        // $kartus= new Image;
+        // if ($request->file('file')) {
+        //     $imagePath = $request->file('file');
+        //     $imageName = $imagePath->getClientOriginalName();
+        //     $path = $request->file('file')->storeAs('uploads', $imageName, 'public');
+        // }
+        
+        // $kartus->path = '/storage/';
+        // $kartus =$request->all();
+        // kartu::create($kartus);
+        // return redirect()->route('kartu.index');
+    
 
     /**
      * Display the specified resource.

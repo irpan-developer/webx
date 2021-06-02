@@ -8,8 +8,8 @@
     <div class="card mx-2">
         <div class="card-header">
 
-<form action="{{ route('kartu.store') }}" method="POST">
-@csrf
+<form action="{{ route('kartu.store') }}" method="POST" enctype="multipart/form-data">
+ @csrf
  <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
@@ -24,6 +24,18 @@
             <textarea class="form-control" style="height:150px" name="deskripsi" placeholder="Detail"></textarea>
         </div>
     </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">   
+          <input type="file" name="file" class="form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" >
+          @if ($errors->has('file'))
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $errors->first('file') }}</strong>
+              </span>
+          @endif
+        </div>
+        </div>        
+
     <div class="card-footer d-flex justify-content-end">
         <a class="btn btn-primary" href="{{ route('kartu.index') }}"> Kembali</a>
     </div>

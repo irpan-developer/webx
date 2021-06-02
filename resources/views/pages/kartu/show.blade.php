@@ -31,6 +31,13 @@
                 {{ $kartus->deskripsi }}
             </div>
         </div>
+    
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+            <img src="{{ $kartus->path }}" height="140" widht="100" alt="{{ $kartus->path }}" />
+            </div>
+        </div>
+    
     </div>
     </div>
     </div>
