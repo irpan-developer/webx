@@ -11,8 +11,8 @@
 
 
 @include('includesHome/topbar')
-@yield('content')
 
+@yield('content')
 @include('includesHome/footer')
 
 @include('includesHome.script')
