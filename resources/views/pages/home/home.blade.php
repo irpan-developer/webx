@@ -22,7 +22,10 @@
                     <p>Stock :{{$item->jumlah}}</p>
                     <a class="btn btn-primary btn-lg" href="#!">Pesan Sekarang »</a>
                 </div>
-                @if ($loop->first)
+            @endforeach
+            </div>
+            {{ $items->appends(['kartu'=>$kartus->currentPage()])->links() }}
+                
                 <div class="col-md-4 mb-5">
                     <h2>Hubungi Kami</h2>
                     <hr />
@@ -42,13 +45,12 @@
                         <a href="mailto:#">{{$taglines[0]->email}}</a>
                     </address>
                 </div>
-            </div>
-            @endif
-            @endforeach
-            {{ $items->appends(['kartu'=>$kartus->currentPage()])->links() }}
- 
+            
+            
+
+
+
             <div class="row">
-                
                 @foreach($kartus as $kartu)
                 <div class="col-md-4 mb-5">
                     <div class="card h-100">

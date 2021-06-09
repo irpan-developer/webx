@@ -50,8 +50,8 @@ Route::get('/kartu/createkartu','kartuController@create')->name('kartu.create');
 Route::post('/kartu/storekartu','kartuController@store')->name('kartu.store');
 Route::post('/kartu/deletekartu/{id}','kartuController@destroy')->name('kartu.destroy');
 Route::get('/kartu/showkartu/{id}','kartuController@show')->name('kartu.show');
-Route::get('/kartu/editkartu/{id}','kartuController@edit')->name('kartu.edit');
-Route::post('/kartu/updatekartu/{id}','kartuController@update')->name('kartu.update');
+Route::GET('/kartu/editkartu/{id}','kartuController@edit')->name('kartu.edit');
+Route::PATCH('/kartu/updatekartu/{id}','kartuController@update')->name('kartu.update');
 
 
 Auth::routes(['verify' => true]);
