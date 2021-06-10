@@ -24,8 +24,9 @@ class kartuRequest extends FormRequest
     public function rules()
     {
         return [
-            'judul'->require|string,
-            'deskripsi'->require|string
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'judul' => 'required|string',
+            'deskripsi' => 'required|string',
         ];
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +48,7 @@ Route::post('/item/update/{id}','itemController@update')->name('item.update');
 Auth::routes(['verify' => true]);
 Route::get('/kartu','kartuController@index')->name('kartu.index');
 Route::get('/kartu/createkartu','kartuController@create')->name('kartu.create');
-Route::post('/kartu/storekartu','kartuController@store')->name('kartu.store');
+Route::post('/kartu/storekartu/{request}','kartuController@store')->name('kartu.store');
 Route::post('/kartu/deletekartu/{id}','kartuController@destroy')->name('kartu.destroy');
 Route::get('/kartu/showkartu/{id}','kartuController@show')->name('kartu.show');
 Route::GET('/kartu/editkartu/{id}','kartuController@edit')->name('kartu.edit');

@@ -36,16 +36,12 @@ class kartuController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\kartuRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'judul' => 'required|string',
-            'deskripsi' => 'required|string',
-        ]);
+        $validated=$request->validate();
 
         $kartus = $request->all();
         $kartus['path']= 'storage/' .$request->file('file')->store(
