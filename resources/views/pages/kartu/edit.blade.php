@@ -33,32 +33,28 @@
 
     <form action="{{ route('kartu.update',$kartus->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
-        @method('PATCH')
+        @method('PUT')
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Judul :</strong>
-                    <input type="text" name="judul" value="{{ $kartus->judul }}" class="form-control" placeholder="Name">
+                    <input type="text" name="judul" value="{{ $kartus->judul }}" class="form-control{{ $errors->has('judul') ? ' is-invalid' : '' }}" placeholder="Name">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Deskripsi:</strong>
-                    <textarea class="form-control" style="height:150px" name="deskripsi" placeholder="Detail">{{ $kartus->deskripsi }}</textarea>
+                    <textarea class="form-control{{ $errors->has('deskripsi') ? ' is-invalid' : '' }}" style="height:150px" name="deskripsi" placeholder="Detail">{{ $kartus->deskripsi }}</textarea>
                 </div>
             </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-            <input type="file" name="file" class="form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" >
-            @if ($errors->has('file'))
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('file') }}</strong>
-            </span>
-            @endif
+            <input type="file" name="file" class="form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" value="{{ $kartus->path }}">
+
         </div>
-          <img src="{{ $kartus->path }}" height="140" widht="100" alt="{{ $kartus->path }}" />
+          <img src="{{ $kartus->path }}" alt="{{ $kartus->path }}" />
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
               <button type="submit" class="btn btn-primary">Submit</button>

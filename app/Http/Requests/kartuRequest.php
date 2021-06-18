@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class kartuRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class kartuRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -25,7 +26,7 @@ class kartuRequest extends FormRequest
     {
         return [
             'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'judul' => 'required|string',
+            'judul' => 'required|string|max:15',
             'deskripsi' => 'required|string',
         ];
     }

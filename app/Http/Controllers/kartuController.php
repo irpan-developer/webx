@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\kartu;
 use App\Image;
-
+use App\Http\Requests\kartuRequest;
 class kartuController extends Controller
 {
     /**
@@ -36,13 +36,11 @@ class kartuController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\kartuRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(kartuRequest $request)
     {
-        $validated=$request->validate();
-
         $kartus = $request->all();
         $kartus['path']= 'storage/' .$request->file('file')->store(
             'assets/personal','public'
@@ -128,7 +126,7 @@ class kartuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(kartuRequest $request, $id)
     {
 
         $newkartus = $request->all();

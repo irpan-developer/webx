@@ -24,8 +24,8 @@ class itemRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama'->require|string,
-            'jumlah'->require|string
+            'nama'=>'require|string',
+            'jumlah'=>'require|string'
         ];
     }
 }

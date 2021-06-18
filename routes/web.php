@@ -36,23 +36,25 @@ Route::get('/dashboard','dashboardController@index')->name('dashboard.index');
 
 
 Auth::routes(['verify' => true]);
-Route::get('/item','itemController@index')->name('item.index');
-Route::get('/item/create','itemController@create')->name('item.create');
-Route::post('/item/store','itemController@store')->name('item.store');
-Route::post('/item/delete/{id}','itemController@destroy')->name('item.destroy');
-Route::get('/item/show/{id}','itemController@show')->name('item.show');
-Route::get('/item/edit/{id}','itemController@edit')->name('item.edit');
-Route::post('/item/update/{id}','itemController@update')->name('item.update');
 
+Route::prefix('item')->group(function (){
+Route::get('/','itemController@index')->name('item.index');
+Route::get('/create','itemController@create')->name('item.create');
+Route::post('/store','itemController@store')->name('item.store');
+Route::post('/delete/{id}','itemController@destroy')->name('item.destroy');
+Route::get('/show/{id}','itemController@show')->name('item.show');
+Route::get('/edit/{id}','itemController@edit')->name('item.edit');
+Route::post('/update/{id}','itemController@update')->name('item.update');
+});
 
 Auth::routes(['verify' => true]);
 Route::get('/kartu','kartuController@index')->name('kartu.index');
 Route::get('/kartu/createkartu','kartuController@create')->name('kartu.create');
-Route::post('/kartu/storekartu/{request}','kartuController@store')->name('kartu.store');
+Route::post('/kartu/storekartu','kartuController@store')->name('kartu.store');
 Route::post('/kartu/deletekartu/{id}','kartuController@destroy')->name('kartu.destroy');
 Route::get('/kartu/showkartu/{id}','kartuController@show')->name('kartu.show');
 Route::GET('/kartu/editkartu/{id}','kartuController@edit')->name('kartu.edit');
-Route::PATCH('/kartu/updatekartu/{id}','kartuController@update')->name('kartu.update');
+Route::PUT('/kartu/updatekartu/{id}','kartuController@update')->name('kartu.update');
 
 
 Auth::routes(['verify' => true]);
@@ -66,9 +68,9 @@ Route::post('/updatetagline/{id}','taglineController@update')->name('tagline.upd
 
 
 
-Route::get('image-upload', 'ImageController@imageUpload')->name('image.upload');
+// Route::get('image-upload', 'ImageController@imageUpload')->name('image.upload');
 
-Route::post('image-upload', 'ImageController@imageUploadPost')->name('image.upload.post');
+// Route::post('image-upload', 'ImageController@imageUploadPost')->name('image.upload.post');
 
 
 

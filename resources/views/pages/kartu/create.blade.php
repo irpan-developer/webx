@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
-   
 
-@section('content')   
+
+@section('content')
 
 <div class="container">
     <div class="card mx-2">
@@ -14,33 +14,42 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Judul:</strong>
-            <input type="text" name="judul" class="form-control" placeholder="Name">
+            <input type="text" name="judul" class="form-control{{ $errors->has('judul') ? ' is-invalid' : '' }}" placeholder="Name">
+
+                @error('judul')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
         </div>
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Deskripsi :</strong>
-            <textarea class="form-control" style="height:150px" name="deskripsi" placeholder="Detail"></textarea>
+            <textarea class="form-control{{ $errors->has('deskripsi') ? ' is-invalid' : '' }}" style="height:150px" name="deskripsi" placeholder="Deskripsi"></textarea>
+            @if ($errors->has('deskripsi'))
+            <div class="alert alert-danger">
+                <div >{{$errors->first('deskripsi')}}</div>
+            </div>
+            @endif
         </div>
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">   
+        <div class="form-group">
           <input type="file" name="file" class="form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" >
           @if ($errors->has('file'))
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $errors->first('file') }}</strong>
-              </span>
+          <div class="alert alert-danger">
+            <div >{{$errors->first('file')}}</div>
+        </div>
           @endif
         </div>
-        </div>        
+        </div>
 
     <div class="card-footer d-flex justify-content-end">
         <a class="btn btn-primary" href="{{ route('kartu.index') }}"> Kembali</a>
     </div>
 
-    
+
     <div class="card-footer d-flex justify-content-start">
             <button type="submit" class="btn btn-primary">Submit</button>
     </div>
