@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\item;
-
+use Illuminate\Support\Facades\DB;
 
 class itemController extends Controller
 {
@@ -15,7 +15,7 @@ class itemController extends Controller
      */
     public function index()
     {
-        $items = item::paginate(5);
+        $items =DB::table('items')->orderBy('nama','asc')->orderBy('jumlah','asc')->paginate();
         return view('pages.item.index')
         ->with(['items'=>$items]);
 
