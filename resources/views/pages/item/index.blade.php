@@ -22,15 +22,17 @@
 
 
 
-
-
-    <table class="table table-bordered">
-        <tr>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable">
+       <thead>
+                <tr>
             <th>No</th>
             <th>Nama</th>
             <th>Jumlah</th>
             <th width="280px">Action</th>
         </tr>
+    </thead>
         @foreach ($items as $item)
         <tr>
             <td>{{$loop->iteration}}</td>
@@ -50,6 +52,8 @@
         @endforeach
     </table>
 </div>
+</div>
+    </div>
 <div class="card-footer d-flex justify-content-end">
         {{ $items->links() }}
         </div>

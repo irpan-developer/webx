@@ -9,14 +9,14 @@
 </head>
 <body>
 
-@include('includes/sidebar')
-@include('includes/topbar')
+@include('includes.script')
+@include('includes.sidebar')
+@include('includes.topbar')
 @yield('content')
 
-@include('includes/footer')
+@include('includes.footer')
 
-@include('includes.script')
 
-    
+
 </body>
 </html>

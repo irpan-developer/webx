@@ -19,17 +19,18 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-
-
-
-    <table class="table table-bordered">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
         <tr>
             <th>No</th>
             <th>Judul</th>
             <th>Deskripsi</th>
             <th>Gambar</th>
-            <th width="280px">Action</th>
+            <th width="320px">Action</th>
         </tr>
+        </thead>
         @foreach ($kartus as $kartu)
         <tr>
             <td>{{$loop->iteration}}</td>
@@ -52,7 +53,7 @@
 </table>
 </div>
 <div class="card-footer d-flex justify-content-end">
-        {{ $kartus->links() }}
+
         </div>
 </div>
 

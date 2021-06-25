@@ -15,11 +15,11 @@ class kartuController extends Controller
      */
     public function index()
     {
-        $kartus = kartu::paginate(5);
-        $images=Image::paginate(5);
+        $kartus = kartu::all();
+        // $images=Image::all();
         return view('pages.kartu.index')->with([
             'kartus'=>$kartus,
-            'images'=>$images
+            // 'images'=>$images
             ]);
     }
 
