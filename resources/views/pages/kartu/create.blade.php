@@ -16,9 +16,11 @@
             <strong>Judul:</strong>
             <input type="text" name="judul" class="form-control{{ $errors->has('judul') ? ' is-invalid' : '' }}" placeholder="Name">
 
-                @error('judul')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
+            @if ($errors->has('judul'))
+            <div class="alert alert-danger">
+                <div >{{$errors->first('judul')}}</div>
+            </div>
+            @endif
         </div>
     </div>
 

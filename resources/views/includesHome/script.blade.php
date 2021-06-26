@@ -1,4 +1,3 @@
-<link rel="icon" type="image/x-icon" href="{{url('frontend/assets/favicon.ico')}}" />
-<link href="{{url('frontend/css/styles.css')}}" rel="stylesheet" />
-
+{{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> --}}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{url('frontend/js/scripts.js')}}"></script>

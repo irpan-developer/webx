@@ -15,12 +15,12 @@
 <script src="{{asset('backend/js/demo/chart-pie-demo.js')}}"></script>
 <script src="{{asset('backend/vendor/datatables/jquery.dataTables.js')}}"></script>
 <script src="{{asset('backend/jquerry-3.5.1.js')}}"></script>
-<script src="{{asset('resources/datatable.js')}}"></script>
+{{-- <script src="{{asset('resources/datatable.js')}}"></script> --}}
 
 
 <!-- Bootstrap core JavaScript-->
-<script src="{{asset('backend/vendor/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('backend/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+{{-- <script src="{{asset('backend/vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('backend/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script> --}}
 
 <!-- Core plugin JavaScript-->
 <script src="{{asset('backend/vendor/jquery-easing/jquery.easing.min.js')}}"></script>

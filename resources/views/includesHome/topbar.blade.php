@@ -1,10 +1,10 @@
 <body>
-<div id="app"> 
+<div id="app">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}    
+            {{ config('app.name', 'Laravel') }}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -41,6 +41,7 @@
                                     {{ __('Logout') }}
                                 </a>
 
+
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
@@ -61,7 +62,7 @@
         <meta name="author" content="" />
         <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-        
+
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
