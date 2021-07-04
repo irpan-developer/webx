@@ -28,14 +28,14 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/kirim-email/{nama}', 'EmailController@index')->name('kirim.email');
 
 
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
 Route::get('/','HomeController@index')->name('landing.index');
 
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
 Route::get('/dashboard','dashboardController@index')->name('dashboard.index');
 
 
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
 
 Route::prefix('item')->group(function (){
 Route::get('/','itemController@index')->name('item.index');
@@ -47,7 +47,7 @@ Route::get('/edit/{id}','itemController@edit')->name('item.edit');
 Route::post('/update/{id}','itemController@update')->name('item.update');
 });
 
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
 Route::get('/kartu','kartuController@index')->name('kartu.index');
 Route::get('/kartu/createkartu','kartuController@create')->name('kartu.create');
 Route::post('/kartu/storekartu','kartuController@store')->name('kartu.store');
@@ -57,7 +57,7 @@ Route::GET('/kartu/editkartu/{id}','kartuController@edit')->name('kartu.edit');
 Route::PUT('/kartu/updatekartu/{id}','kartuController@update')->name('kartu.update');
 
 
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
 Route::get('/tagline','taglineController@index')->name('tagline.index');
 Route::get('/createtagline','taglineController@create')->name('tagline.create');
 Route::post('/storetagline','taglineController@store')->name('tagline.store');
@@ -74,5 +74,13 @@ Route::post('/updatetagline/{id}','taglineController@update')->name('tagline.upd
 
 
 
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/kategori','kategoriController@index')->name('kategori.index');
+Route::get('/kategori/createkategori','kategoriController@create')->name('kategori.create');
+Route::post('/kategori/storekategori','kategoriController@store')->name('kategori.store');
+Route::post('/kategori/deletekategori/{id}','kategoriController@destroy')->name('kategori.destroy');
+Route::get('/kategori/showkategori/{id}','kategoriController@show')->name('kategori.show');
+Route::GET('/kategori/editkategori/{id}','kategoriController@edit')->name('kategori.edit');
+Route::PUT('/kategori/updatekategori/{id}','kategoriController@update')->name('kategori.update');

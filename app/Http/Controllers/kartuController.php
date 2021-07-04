@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\kartu;
 use App\Image;
+use App\Models\kategori;
 use App\Http\Requests\kartuRequest;
+
 class kartuController extends Controller
 {
     /**
@@ -30,7 +32,10 @@ class kartuController extends Controller
      */
     public function create()
     {
-        return view('pages.kartu.create');
+        $kategoris=kategori::all();
+        return view('pages.kartu.create')->with([
+            'kategoris'=>$kategoris
+        ]);
     }
 
     /**

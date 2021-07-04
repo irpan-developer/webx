@@ -45,6 +45,7 @@
                 <a class="collapse-item" href="/tagline">Tagline</a>
                 <a class="collapse-item" href="/item">Item</a>
                 <a class="collapse-item" href="/kartu">Kartu</a>
+                <a class="collapse-item" href="/kategori">Kategori</a>
             </div>
         </div>
     </li>

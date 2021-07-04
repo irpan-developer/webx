@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\item;
-use App\Models\kartu;
-use App\Models\tagline;
 
 class HomeController extends Controller
 {
@@ -16,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth','verified']);
+        $this->middleware('auth');
     }
 
     /**
@@ -26,23 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-    
-    
-        $items = item::paginate(3,['*'],'item');
-        $kartus = kartu::paginate(3,['*'],'kartu');
-        $taglines = tagline::paginate(3,['*'],'tagline');
-        return view('pages.home.home')
-        ->with([
-            'items'=>$items,
-            'kartus'=>$kartus,
-            'taglines'=>$taglines
-            ]);
-    }
-
-    public function Home(){
         return view('home');
     }
-
-
-
 }
